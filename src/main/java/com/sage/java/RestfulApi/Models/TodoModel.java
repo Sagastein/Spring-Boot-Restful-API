@@ -2,7 +2,9 @@ package com.sage.java.RestfulApi.Models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import lombok.Getter;
 
+@Getter
 @Entity
 @Table(name = "todos")
 public class TodoModel {
@@ -18,24 +20,12 @@ public class TodoModel {
     private String description;
 
 
-    public Long getId() {
-        return id;
-    }
-
     public void setId(Long id) {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
     }
 
     public void setDescription(String description) {
