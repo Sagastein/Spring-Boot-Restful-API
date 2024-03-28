@@ -10,7 +10,7 @@ public interface UserService {
 
     ResponseEntity<?> getUserById(Long id);
 
-    ResponseEntity<?> deleteUserById();
+    ResponseEntity<?> deleteUserById(Long id);
 
-    ResponseEntity<?> updateUserById();
+    ResponseEntity<?> updateUserById(Long id, UserModel user);
 }
