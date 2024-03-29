@@ -1,5 +1,6 @@
 package com.sage.java.RestfulApi.Service;
 
+import com.sage.java.RestfulApi.Config.CustomResponse;
 import com.sage.java.RestfulApi.Models.TodoModel;
 import com.sage.java.RestfulApi.Repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,10 +44,14 @@ public class TodoServiceImpl implements TodoService {
     @Override
     public ResponseEntity<?> deleteTodoById(Long id) {
         TodoModel todo = todoRepository.findById(id).orElse(null);
+//        if (todo == null) {
+//            Map<String, String> error = new HashMap<>();
+//            error.put("error", "Todo not found");
+//            return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+//        }
         if (todo == null) {
-            Map<String, String> error = new HashMap<>();
-            error.put("error", "Todo not found");
-            return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+            CustomResponse response = new CustomResponse("User not found in the database");
+            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
         }
         todoRepository.deleteById(id);
         Map<String, String> message = new HashMap<>();
