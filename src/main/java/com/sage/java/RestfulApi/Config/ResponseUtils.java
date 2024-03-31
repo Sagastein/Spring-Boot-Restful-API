@@ -1,4 +1,4 @@
-package com.sage.java.RestfulApi.Service;
+package com.sage.java.RestfulApi.Config;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,4 +13,5 @@ public class ResponseUtils {
         error.put("message", message);
         return new ResponseEntity<>(error, status);
     }
+
 }
